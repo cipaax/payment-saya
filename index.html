@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cipa Payment</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background: linear-gradient(to bottom right, #0f172a, #000);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .card, .payment-card {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn, .copy-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: cyan;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .btn:hover, .copy-btn:hover {
+      background-color: #f472b6;
+      color: white;
+    }
+
+    .qr-code {
+      width: 100%;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    .note {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #fce7f3;
+    }
+
+    .copy-section {
+      margin-top: 15px;
+      text-align: left;
+    }
+
+    .copy-label {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    #paymentPage {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="homePage" class="card">
+    <h1>haii, ini cipaa</h1>
+    <h3>Cipaa Hosting</h3>
+    <p>Selamat datang di website simpel paymentku, aku harap tidak salah tf ya :v</p>
+    <button class="btn" onclick="goToPayment()">Go to Payment</button>
+  </div>
+
+  <div id="paymentPage" class="payment-card">
+    <h2>Payment Cipa</h2>
+    <p>Untuk payment qris bisa minta ke cipa yaa</p>
+
+    <img src="https://files.catbox.moe/bvolcn.jpg" alt="QRIS Payment" class="qr-code" />
+
+    <div class="copy-section">
+      <div class="copy-label">Dana:</div>
+      <button class="copy-btn" onclick="copyToClipboard('6283892597828')">6283892597828 (Salin)</button>
+
+      <div class="copy-label" style="margin-top: 10px;">Gopay:</div>
+      <button class="copy-btn" onclick="copyToClipboard('6283892597828')">6283892597828 (Salin)</button>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <a class="btn" href="https://wa.me/6288293058238">WhatsApp</a>
+      <a class="btn" href="https://t.me/cipaa">Telegram</a>
+      <button class="btn" onclick="goToHome()">Back</button>
+    </div>
+
+    <p class="note">Terimakasih yang suda membuka website payment ku:3</p>
+  </div>
+
+  <script>
+    function goToPayment() {
+      document.getElementById('homePage').style.display = 'none';
+      document.getElementById('paymentPage').style.display = 'block';
+    }
+
+    function goToHome() {
+      document.getElementById('paymentPage').style.display = 'none';
+      document.getElementById('homePage').style.display = 'block';
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(function() {
+        alert("Nomor berhasil disalin: " + text);
+      }, function(err) {
+        alert("Gagal menyalin teks");
+      });
+    }
+  </script>
+
+</body>
+</html>
